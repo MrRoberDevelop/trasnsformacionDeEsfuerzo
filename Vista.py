@@ -21,16 +21,20 @@ class Vista:
 
         title.pack(pady = 10)
         firstName.pack(pady =10)
+        self.createTable()
+        self.button()
+
+
 
         self.master.mainloop()
 
     def createTable(self):
         self.txt = Text(self.master)
-        txt.pack()
+        self.txt.pack()
 
         class PrintToTXT(object):
             def write(self,s):
-                txt.insert(END,s)
+                self.txt.insert(END,s)
         sys.stdout = PrintToTXT()
 
     def print_data(self):
@@ -51,5 +55,3 @@ class Vista:
 
 if __name__ == "__main__":
     vista = Vista()
-    vista.createTable()
-    vista.button()
