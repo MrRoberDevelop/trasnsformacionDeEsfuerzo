@@ -29,12 +29,15 @@ class Vista:
         self.master.mainloop()
 
     def createTable(self):
-        self.txt = Text(self.master)
-        self.txt.pack()
+        txt = Text(self.master)
+        txt.pack()
 
         class PrintToTXT(object):
             def write(self,s):
-                self.txt.insert(END,s)
+                txt.insert(END,s)
+
+            def flush(self):
+                pass
         sys.stdout = PrintToTXT()
 
     def print_data(self):
@@ -42,12 +45,10 @@ class Vista:
         print(df)
 
     def button(self):
-        def print_data():
-            self.print_data()
         btn = Button(
                 self.master,
                 text="timbre aqui",
-                command = print_data
+                command = self.print_data
                 )
         btn.pack(pady=10)
 
