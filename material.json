@@ -1,0 +1,65 @@
+[
+    {
+        "name": "A1020",
+        "tipo": "ACERO",
+        "desidad": 2780,
+        "esfuerzo": 280000000,
+        "modulo": 730000000000
+    },
+    {
+        "name": "A1045",
+        "tipo": "ACERO",
+        "desidad": 7850,
+        "esfuerzo": 4130000000,
+        "modulo": 200000000000
+    },
+    {
+        "name": "A4145",
+        "tipo": "ACERO",
+        "desidad": 7850,
+        "esfuerzo": 4150000000,
+        "modulo": 200000000000
+    },
+    {
+        "name": "AL2024-T3",
+        "tipo": "ALUMINIO",
+        "desidad": 2780,
+        "esfuerzo": 280000000,
+        "modulo": 73000000000
+    },
+    {
+        "name": "Al7075",
+        "tipo": "ALUMINIO",
+        "desidad": 2810,
+        "esfuerzo": 460000000,
+        "modulo": 71700000000
+    },
+    {
+        "name": "Al6061",
+        "tipo": "ALUMINIO",
+        "desidad": 2700,
+        "esfuerzo": 240000000,
+        "modulo": 68000000000
+    },
+    {
+        "name": "Ti6_4",
+        "tipo": "TITANIO",
+        "desidad": 4430,
+        "esfuerzo": 1100000000,
+        "modulo": 114000000000
+    },
+    {
+        "name": "Ti_pure",
+        "tipo": "TITANIO",
+        "desidad": 4510,
+        "esfuerzo": 345000000,
+        "modulo": 115000000000
+    },
+    {
+        "name": "Ti3_25",
+        "tipo": "TITANIO",
+        "desidad": 4480,
+        "esfuerzo": 483000000,
+        "modulo": 105000000000
+    }
+]
