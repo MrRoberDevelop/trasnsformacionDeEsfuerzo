@@ -5,6 +5,7 @@ import sys
 from datajson import *
 from tkinter import *
 from tkinter.ttk import *
+from tkinter import messagebox
 
 class Vista:
     def __init__(self):
@@ -53,7 +54,7 @@ class Vista:
                                 text="nuevo material",
                                 command=self.nuevo)
         self.removeValues = Button(self.frame,
-                                text="nuevo material",
+                                text="Eliminar material",
                                 command=self.delete)
 
         self.material.grid(row=1, column=0)
@@ -69,20 +70,49 @@ class Vista:
     def delete(self):
         delete_item(self.material.get())
         self.print_data()
+        self.clean_spaces()
 
 
     def nuevo(self):
-        material={
-            "name"  :self.material.get(),
-            "tipo"      :self.tipo.get(),
-            "desidad"   :float(self.densidad.get()),
-            "esfuerzo"  :float(self.esfuerzo.get()),
-            "modulo"    :float(self.modulo.get())
-            }
-        
-
-        include_data(material)
-        self.print_data()
+        data = get_one_item_from_json(self.material.get())
+        if data is not None:
+            #print(data)
+            messagebox.showerror(
+                "Elemento existente",
+                "El material ya se encuentra en nuestra base de datos por favor revisar los datos de entrada"
+            )
+        else:
+            #print("nothing")
+            try:
+                if self.material.get() != "" and self.tipo.get() !="":
+                    material={
+                        "name"  :self.material.get(),
+                        "tipo"      :self.tipo.get(),
+                        "desidad"   :float(self.densidad.get()),
+                        "esfuerzo"  :float(self.esfuerzo.get()),
+                        "modulo"    :float(self.modulo.get())
+                    }
+                    include_data(material)
+                    self.print_data()
+                else:
+                    messagebox.showerror(
+                        "Error de datos",
+                        "El material necesita un nombre y un tipo"
+                    )
+            except:
+                messagebox.showerror(
+                    "Error de datos",
+                    "Los datos no corresponden a valores validos.\n" + 
+                    "Por favor reingresa los datos."
+                )
+            finally:
+                self.clean_spaces()
+    def clean_spaces(self):
+        self.material.delete(0,'end')
+        self.tipo.delete(0,'end')
+        self.densidad.delete(0,'end')
+        self.esfuerzo.delete(0,'end')
+        self.modulo.delete(0,'end')
 
 
     def createTable(self):

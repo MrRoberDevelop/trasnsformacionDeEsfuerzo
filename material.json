@@ -54,12 +54,5 @@
         "desidad": 4510,
         "esfuerzo": 345000000,
         "modulo": 115000000000
-    },
-    {
-        "name": "Ti3_25",
-        "tipo": "TITANIO",
-        "desidad": 4480,
-        "esfuerzo": 483000000,
-        "modulo": 105000000000
     }
 ]
