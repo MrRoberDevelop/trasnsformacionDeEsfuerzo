@@ -61,5 +61,12 @@
         "desidad": 4480,
         "esfuerzo": 483000000,
         "modulo": 105000000000
+    },
+    {
+        "material": "al",
+        "tipo": "AL123",
+        "desidad": 123.0,
+        "esfuerzo": 123.0,
+        "modulo": 123.0
     }
 ]
