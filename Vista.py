@@ -49,20 +49,31 @@ class Vista:
         self.densidad = Entry(self.frame)
         self.esfuerzo = Entry(self.frame)
         self.modulo = Entry(self.frame)
-        self.addValues = Button(self.master,
+        self.addValues = Button(self.frame,
                                 text="nuevo material",
                                 command=self.nuevo)
+        self.removeValues = Button(self.frame,
+                                text="nuevo material",
+                                command=self.delete)
 
         self.material.grid(row=1, column=0)
         self.tipo.grid(row=1, column=1)
         self.densidad.grid(row=1, column=2)
         self.esfuerzo.grid(row=1, column=3)
         self.modulo.grid(row=1, column=4)
-        self.addValues.pack()
+
+        self.addValues.grid(row=2,column=1)
+        self.removeValues.grid(row=2,column=2)
+
+
+    def delete(self):
+        delete_item(self.material.get())
+        self.print_data()
+
 
     def nuevo(self):
         material={
-            "material"  :self.material.get(),
+            "name"  :self.material.get(),
             "tipo"      :self.tipo.get(),
             "desidad"   :float(self.densidad.get()),
             "esfuerzo"  :float(self.esfuerzo.get()),

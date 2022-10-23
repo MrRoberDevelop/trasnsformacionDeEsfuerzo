@@ -57,6 +57,14 @@ def get_one_item_from_json(name):
         if x['name'] == name:
             return x
 
+# Dlete item by name
+def delete_item(name):
+    json_data =load_data()
+    for x in range(len(json_data)):
+        if json_data[x]['name'] == name:
+            delete_one_item_from_json(x)
+
+
 # Delete One Item from Json
 def delete_one_item_from_json(id):
     json_data = load_data()
