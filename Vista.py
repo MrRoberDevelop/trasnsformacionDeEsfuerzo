@@ -69,9 +69,16 @@ class Vista:
 
 
     def delete(self):
-        delete_item(self.material.get())
-        self.print_data()
-        self.clean_spaces()
+        data = get_one_item_from_json(self.material.get())
+        if data is not None:
+            delete_item(self.material.get())
+            self.print_data()
+            self.clean_spaces()
+        else:
+            messagebox.showerror(
+                "Elemento inexistente",
+                "El material que intenta borrar no se encuentra disponible"
+            )
 
 
     def nuevo(self):
