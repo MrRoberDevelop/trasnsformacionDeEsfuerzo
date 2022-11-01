@@ -76,9 +76,17 @@ def update_one_item_in_json(id, data):
     json_data[id] = data
     save_data(json_data)
 
+
+def list_materials():
+    json_data = load_data()
+    materials = []
+    for x in json_data:
+        materials.append(x.get('name'))
+    return materials
+
 if __name__ == '__main__':
     #print(load_data())
 
-    sol = load_data()
+    sol = list_materials()
 
-    print(type(sol))
+    print(sol)

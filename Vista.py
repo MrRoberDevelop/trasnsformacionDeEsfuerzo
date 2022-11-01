@@ -75,6 +75,13 @@ class Vista:
         return self.sigma_xprima, self.sigma_yprima, self.Tau_xyprima, self.theta_p, self.sigma_xprin, self.sigma_yprin, self.Tau_xyprin
 
     def analisis(self):
+
+        # se obtienen los valores del material
+
+        propMaterial = get_one_item_from_json(self.materialbox.get())
+
+        print(propMaterial)
+
         self.sigma_x = float(self.Sigmax.get())
         self.sigma_y = float(self.sigmay.get())
         self.Tau_xy = float(self.tauxy.get())
@@ -99,6 +106,17 @@ class Vista:
         sigmay = Label(self.NWindow, text='σ_y =')
         tauxy = Label(self.NWindow, text='τ_xy =')
         material = Label(self.NWindow, text='Seleccione el Material', font='times 20')
+        
+        # Se hace una lista desplegable donde se podra seleccionar el material deseado
+        self.materialbox = ttk.Combobox(
+            self.NWindow,
+            state="readonly",
+            values = list_materials()
+        )
+
+        # Se setea al primer valor
+        self.materialbox.current(0)
+
         resultados = Label(self.NWindow, text='Resultados', font='times 20')
         angulo = Label(self.NWindow, text='Ingrese el ángulo de rotación', font='times 20')
         theta = Label(self.NWindow, text='θ =')
@@ -132,6 +150,7 @@ class Vista:
         self.resultado9 = Label(self.NWindow, text="", font="times 15")
         ingresar.place(x=60,y=30)
         material.place(x=900, y=30)
+        self.materialbox.place(x=900, y=80)
         sigmax.place(x=60,y=80)
         sigmay.place(x=60,y=130)
         tauxy.place(x=60,y=180)
