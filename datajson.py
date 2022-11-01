@@ -79,6 +79,6 @@ def update_one_item_in_json(id, data):
 if __name__ == '__main__':
     #print(load_data())
 
-    sol = get_one_item_from_json("A1020")
+    sol = load_data()
 
-    print(sol)
+    print(type(sol))

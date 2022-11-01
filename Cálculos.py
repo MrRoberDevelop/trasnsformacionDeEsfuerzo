@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from matplotlib.pyplot import *
 
 #Ingresar el esfuerzo de fluencia del material
-sigma_yield = 100
+sigma_yield = 500
 
 #Ingresar los esfuerzos originales
 # sigma_x = float(input('Ingresar σ_x: '))
@@ -86,6 +86,6 @@ y = x_prima*sin(radians(45))+y_prima*cos(radians(45))
 fig, Criterios = subplots()
 Criterios.plot(x_tresca,y_tresca, label='Tresca')
 Criterios.plot(x,y, label='Von Mises')
-Criterios.plot(sigma_x,sigma_y, marker='o', label='Esfuerzo original')
+Criterios.plot(sigma_xprin,sigma_yprin, marker='o', label='Esfuerzo original')
 plt.legend(loc='lower right',fontsize='small')
 plt.show()
